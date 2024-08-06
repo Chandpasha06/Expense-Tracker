@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Expense Summary{% endblock %}
+{% block content %}
+<h1>Summary of Expenses</h1>
+
+<!-- Display total amount -->
+<h2>Total Expenses: ₹{{ total_amount }}</h2>
+
+<!-- Table for expenses -->
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category, amount in expense_summary.items() %}
+        <tr>
+            <td>{{ category }}</td>
+            <td>₹{{ amount }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Display pie chart -->
+<img src="data:image/png;base64,{{ img_data }}" alt="Expense Pie Chart"/>
+
+{% endblock %}
